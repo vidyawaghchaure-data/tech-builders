@@ -4287,20 +4287,37 @@ footer p {
 /* =========================================================
    TEAM GRID
 ========================================================= */
+@media (max-width: 768px) {
 
-.team-grid {
-  position: relative;
+  /* एका वेळी १ कार्ड पूर्ण रुंदीत (Full Width) दिसेल */
+  .team-grid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none; /* आधीची ग्रिड सिस्टीम बंद केली */
+    gap: 30px; /* दोन मेंबर्सच्या कार्डमध्ये अंतर */
+    width: 100%;
+  }
 
-  z-index: 5;
+  /* प्रत्येक मेंबरचे कार्ड व्यवस्थित सेंटरला आणि पूर्ण स्क्रीनवर बसेल */
+  .member-card {
+    display: flex;
+    flex-direction: column; /* फोटो वर आणि माहिती खाली */
+    width: 100%;
+    max-width: 400px; /* खूप मोठे कार्ड दिसू नये म्हणून लिमिट */
+    margin: 0 auto; /* कार्ड स्क्रीनच्या मध्यभागी आणण्यासाठी */
+  }
 
-  display: grid;
+  .member-photo-wrapper {
+    width: 100%;
+    min-height: 240px;
+    padding: 20px;
+  }
 
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 18px;
-
-  margin-top: 90px;
+  .member-info {
+    width: 100%;
+    padding: 20px 18px;
+  }
+  
 }
 
 
