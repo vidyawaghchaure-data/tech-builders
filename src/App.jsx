@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import { supabase } from "./supabaseClient";
 import "./App.css";
 
 function App() {
@@ -320,13 +322,36 @@ function App() {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    console.log("PROJECT REQUEST:", formData);
+  try {
+    const { error } = await supabase
+      .from("tech_builders_contacts")
+      .insert({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        project_type: formData.projectType,
+        technology: formData.technology,
+        deadline: formData.deadline,
+        description: formData.description.trim(),
+        status: "NEW",
+      });
+
+    if (error) {
+      console.error("Supabase Error:", error);
+      alert(`Supabase Error: ${error.message}`);
+      return;
+    }
 
     setSubmitted(true);
-  };
+
+  } catch (error) {
+    console.error("Connection Error:", error);
+    alert(`Connection Error: ${error.message}`);
+  }
+};
 
   const closeModal = () => {
     setShowContactForm(false);
