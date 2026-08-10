@@ -4976,3 +4976,288 @@ footer p {
   }
 
 }
+/* =========================================================
+   TEAM MEMBERS - MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scrolling */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #team {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Team heading */
+
+  .team-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .team-heading h2 {
+    font-size: clamp(42px, 13vw, 64px);
+    line-height: 0.95;
+    margin: 0;
+  }
+
+  .team-intro {
+    width: 100%;
+  }
+
+  .team-intro p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Team grid */
+
+  .team-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  /* Member card */
+
+  .member-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Member image */
+
+  .member-photo-wrapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .member-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 4.5;
+    overflow: hidden;
+  }
+
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Member number */
+
+  .member-index {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  /* Member information */
+
+  .member-info {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px 18px 24px;
+  }
+
+  .member-number {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .member-info h3 {
+    font-size: 25px;
+    line-height: 1.15;
+    margin: 8px 0;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .member-info h4 {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+    overflow-wrap: anywhere;
+  }
+
+  .member-line {
+    width: 100%;
+    margin: 15px 0 20px;
+  }
+
+  /* Expertise */
+
+  .expertise-title {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+
+  .expertise {
+    font-size: 13px;
+    line-height: 1.65;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Technology and strength tags */
+
+  .skill-tags {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-tags span {
+    max-width: 100%;
+    font-size: 10px;
+    line-height: 1.3;
+    padding: 7px 9px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  /* Social links */
+
+  .member-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .member-links a {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 11px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  #team {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-number {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .team-heading h2 {
+    font-size: 46px;
+  }
+
+  .team-grid {
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .member-card {
+    border-radius: 0;
+  }
+
+  .member-photo {
+    aspect-ratio: 1 / 1.08;
+  }
+
+  .member-info {
+    padding: 20px 16px 22px;
+  }
+
+  .member-info h3 {
+    font-size: 23px;
+  }
+
+  .member-info h4 {
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .expertise {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .skill-tags {
+    gap: 6px;
+  }
+
+  .skill-tags span {
+    font-size: 9px;
+    padding: 6px 8px;
+  }
+
+  .member-links {
+    gap: 8px;
+  }
+
+  .member-links a {
+    font-size: 10px;
+    padding: 10px 6px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  #team {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .team-heading h2 {
+    font-size: 40px;
+  }
+
+  .member-info {
+    padding: 18px 14px 20px;
+  }
+
+  .member-info h3 {
+    font-size: 21px;
+  }
+
+  .member-links a {
+    font-size: 9px;
+  }
+
+}
