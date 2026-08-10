@@ -667,12 +667,77 @@ h2 span {
 
 
 /* TEAM CARD */
+/* =========================================================
+   TEAM
+========================================================= */
 
-.member-card {
+.team {
+  border-top: 1px solid var(--border);
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(0, 217, 255, 0.035),
+      transparent 35%
+    ),
+    #050b16;
+}
+
+.team-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 55px;
+}
+
+.team-intro {
+  align-self: end;
+}
+
+.crew-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #63728a;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.team-intro p {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TEAM GRID
+========================================================= */
+
+.team-grid {
   display: grid;
 
-  grid-template-columns: 220px minmax(0, 1fr);
+  /* One complete member card per row */
+  grid-template-columns: 1fr;
 
+  gap: 28px;
+
+  margin-top: 70px;
+}
+
+
+/* =========================================================
+   MEMBER CARD
+   PHOTO TOP + DETAILS BELOW
+========================================================= */
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
   min-width: 0;
 
   overflow: hidden;
@@ -687,15 +752,25 @@ h2 span {
     );
 
   transition:
-    transform 0.3s,
-    border-color 0.3s;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .member-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 
   border-color: rgba(0, 217, 255, 0.5);
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(0, 217, 255, 0.04);
 }
+
+
+/* =========================================================
+   PHOTO SECTION
+========================================================= */
 
 .member-photo-wrapper {
   position: relative;
@@ -704,25 +779,28 @@ h2 span {
   align-items: center;
   justify-content: center;
 
-  min-height: 330px;
+  width: 100%;
+
+  min-height: 280px;
+
+  padding: 45px 20px;
 
   background:
     radial-gradient(
-      circle,
-      rgba(0, 217, 255, 0.08),
+      circle at center,
+      rgba(0, 217, 255, 0.10),
       transparent 65%
     );
 }
 
 
-/*
-   IMPORTANT:
-   Photos are perfectly circular.
-*/
+/* Perfect circular photo */
 
 .member-photo {
-  width: 155px;
-  height: 155px;
+  width: 190px;
+  height: 190px;
+
+  flex-shrink: 0;
 
   overflow: hidden;
 
@@ -734,7 +812,19 @@ h2 span {
 
   box-shadow:
     0 0 0 8px rgba(0, 217, 255, 0.035),
-    0 0 35px rgba(0, 217, 255, 0.08);
+    0 0 35px rgba(0, 217, 255, 0.10);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.member-card:hover .member-photo {
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 0 10px rgba(0, 217, 255, 0.045),
+    0 0 45px rgba(0, 217, 255, 0.16);
 }
 
 .member-photo img {
@@ -748,11 +838,14 @@ h2 span {
   object-position: center;
 }
 
+
+/* Member number */
+
 .member-index {
   position: absolute;
 
-  top: 18px;
-  left: 18px;
+  top: 20px;
+  left: 22px;
 
   color: #607087;
 
@@ -763,10 +856,18 @@ h2 span {
   letter-spacing: 1px;
 }
 
+
+/* =========================================================
+   MEMBER INFORMATION
+========================================================= */
+
 .member-info {
+  width: 100%;
   min-width: 0;
 
-  padding: 28px 25px;
+  padding: 30px 32px 32px;
+
+  border-top: 1px solid var(--border);
 }
 
 .member-number {
@@ -782,9 +883,9 @@ h2 span {
 
   color: #f1f6fd;
 
-  font-size: 24px;
+  font-size: 26px;
 
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .member-info h4 {
@@ -796,20 +897,25 @@ h2 span {
 
   font-weight: 500;
 
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .member-line {
   width: 100%;
   height: 1px;
 
-  margin: 18px 0;
+  margin: 20px 0;
 
   background: var(--border);
 }
 
+
+/* =========================================================
+   EXPERTISE
+========================================================= */
+
 .expertise-title {
-  margin-top: 14px;
+  margin-top: 15px;
 
   color: #526178;
 
@@ -827,22 +933,27 @@ h2 span {
 
   font-size: 10px;
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
+
+
+/* =========================================================
+   SKILL TAGS
+========================================================= */
 
 .skill-tags {
   display: flex;
 
   flex-wrap: wrap;
 
-  gap: 5px;
+  gap: 6px;
 
-  margin-top: 9px;
+  margin-top: 10px;
 }
 
 .skill-tags span,
 .tags span {
-  padding: 6px 8px;
+  padding: 7px 9px;
 
   border: 1px solid #1d3048;
 
@@ -854,10 +965,28 @@ h2 span {
 
   font-size: 7px;
 
-  line-height: 1;
+  line-height: 1.2;
 
   white-space: nowrap;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
 }
+
+.skill-tags span:hover {
+  border-color: rgba(0, 217, 255, 0.45);
+
+  color: var(--cyan);
+
+  background: rgba(0, 217, 255, 0.05);
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
 
 .member-links {
   display: flex;
@@ -866,11 +995,17 @@ h2 span {
 
   gap: 10px;
 
-  margin-top: 22px;
+  margin-top: 25px;
 }
 
 .member-links a {
-  padding: 8px 11px;
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 9px 13px;
 
   border: 1px solid var(--border);
 
@@ -880,14 +1015,182 @@ h2 span {
 
   letter-spacing: 0.5px;
 
-  transition: 0.25s;
+  transition:
+    0.25s ease;
 }
 
 .member-links a:hover {
   border-color: var(--cyan);
 
   color: var(--cyan);
+
+  background: rgba(0, 217, 255, 0.04);
 }
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 768px) {
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+  }
+
+  .member-photo-wrapper {
+    min-height: 300px;
+  }
+
+  .member-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .team-heading {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    margin-top: 35px;
+  }
+
+  .team-intro {
+    align-self: start;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    margin-top: 45px;
+  }
+
+  /* Full card remains vertical */
+  .member-card {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  /* Photo stays ABOVE details */
+  .member-photo-wrapper {
+    min-height: 245px;
+
+    padding: 35px 15px;
+  }
+
+  .member-photo {
+    width: 165px;
+    height: 165px;
+  }
+
+  .member-index {
+    top: 16px;
+    left: 16px;
+  }
+
+  /* Details BELOW photo */
+  .member-info {
+    width: 100%;
+
+    padding: 24px 20px 25px;
+  }
+
+  .member-info h3 {
+    font-size: 22px;
+  }
+
+  .member-info h4 {
+    font-size: 9px;
+  }
+
+  .expertise {
+    font-size: 9px;
+
+    line-height: 1.7;
+  }
+
+  .skill-tags {
+    gap: 5px;
+  }
+
+  .skill-tags span {
+    font-size: 7px;
+
+    padding: 6px 8px;
+
+    white-space: normal;
+  }
+
+  .member-links {
+    margin-top: 20px;
+  }
+
+  .member-links a {
+    padding: 8px 10px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .member-photo-wrapper {
+    min-height: 225px;
+
+    padding: 30px 10px;
+  }
+
+  .member-photo {
+    width: 145px;
+    height: 145px;
+  }
+
+  .member-info {
+    padding: 22px 17px 23px;
+  }
+
+  .member-info h3 {
+    font-size: 20px;
+  }
+
+  .member-info h4 {
+    font-size: 8.5px;
+  }
+
+  .expertise {
+    font-size: 8.5px;
+  }
+
+  .skill-tags span {
+    font-size: 6.5px;
+  }
+}
+
+
+
+
+ 
+
+
 
 
 /* =========================================================
@@ -6036,290 +6339,6 @@ footer p {
 
   .member-info h3 {
     font-size: 21px;
-  }
-
-}
-/* =========================================================
-   TEAM - MOBILE RESPONSIVE FIX
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  /* TEAM SECTION */
-
-  .team {
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-
-  /* TEAM HEADING */
-
-  .team-heading {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-top: 40px;
-    width: 100%;
-  }
-
-  .team-heading > div {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .team-intro {
-    align-self: auto;
-  }
-
-
-  /* TEAM GRID */
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    width: 100%;
-    margin-top: 45px;
-  }
-
-
-  /* MEMBER CARD */
-
-  .member-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-
-  /* PHOTO CONTAINER */
-
-  .member-photo-wrapper {
-    position: relative;
-
-    width: 100%;
-    min-width: 0;
-    height: 330px;
-    min-height: 330px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-  }
-
-
-  /* CIRCULAR PHOTO */
-
-  .member-photo {
-    width: 170px;
-    height: 170px;
-
-    flex-shrink: 0;
-
-    overflow: hidden;
-
-    border-radius: 50%;
-  }
-
-
-  /* IMAGE */
-
-  .member-photo img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-    object-position: center center;
-  }
-
-
-  /* MEMBER NUMBER */
-
-  .member-index {
-    top: 18px;
-    left: 18px;
-  }
-
-
-  /* MEMBER INFORMATION */
-
-  .member-info {
-    width: 100%;
-    min-width: 0;
-
-    padding: 25px 20px;
-
-    box-sizing: border-box;
-  }
-
-
-  .member-info h3 {
-    font-size: 24px;
-    line-height: 1.15;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  .member-info h4 {
-    font-size: 10px;
-    line-height: 1.6;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  .expertise {
-    font-size: 10px;
-    line-height: 1.8;
-
-    overflow-wrap: anywhere;
-  }
-
-
-  /* TAGS */
-
-  .skill-tags {
-    width: 100%;
-
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-    min-width: 0;
-  }
-
-
-  .skill-tags span,
-  .tags span {
-    max-width: 100%;
-    box-sizing: border-box;
-
-    white-space: normal;
-    overflow-wrap: anywhere;
-
-    line-height: 1.3;
-  }
-
-
-  /* SOCIAL LINKS */
-
-  .member-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    width: 100%;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-
-  .member-card {
-    grid-template-columns: 1fr;
-  }
-
-
-  .member-photo-wrapper {
-    width: 100%;
-    height: 310px;
-    min-height: 310px;
-  }
-
-
-  .member-photo {
-    width: 160px;
-    height: 160px;
-  }
-
-
-  .member-info {
-    padding: 22px 17px;
-  }
-
-
-  .member-info h3 {
-    font-size: 22px;
-  }
-
-
-  .member-info h4 {
-    font-size: 9px;
-  }
-
-
-  .expertise {
-    font-size: 9px;
-  }
-
-
-  .skill-tags span,
-  .tags span {
-    font-size: 7px;
-    padding: 6px 7px;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-  .team {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-
-  .team-grid {
-    gap: 20px;
-  }
-
-
-  .member-photo-wrapper {
-    height: 285px;
-    min-height: 285px;
-  }
-
-
-  .member-photo {
-    width: 145px;
-    height: 145px;
-  }
-
-
-  .member-info {
-    padding: 20px 14px;
-  }
-
-
-  .member-info h3 {
-    font-size: 20px;
   }
 
 }
