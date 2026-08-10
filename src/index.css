@@ -701,7 +701,9 @@ h2 span {
   position: relative;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   min-height: 330px;
@@ -718,11 +720,22 @@ h2 span {
   width: 155px;
   height: 155px;
 
-  overflow: hidden;
+  min-width: 155px;
+  min-height: 155px;
 
-  border: 2px solid rgba(0, 217, 255, 0.65);
+  aspect-ratio: 1 / 1;
+
+  flex-shrink: 0;
 
   border-radius: 50%;
+
+  clip-path: circle(50% at 50% 50%);
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  border: 2px solid rgba(0, 217, 255, 0.65);
 
   background: #0b1424;
 
@@ -740,6 +753,8 @@ h2 span {
   object-fit: cover;
 
   object-position: center;
+
+  border-radius: 50%;
 }
 
 .member-index {
@@ -2102,7 +2117,7 @@ footer p {
   }
 
 
-  /* TEAM (FIXED MOBILE LAYOUT) */
+  /* TEAM (MOBILE LAYOUT FIX) */
 
   .team-heading {
     grid-template-columns: 1fr;
@@ -2159,16 +2174,22 @@ footer p {
 
   .member-photo {
     width: 140px;
-
     height: 140px;
 
     min-width: 140px;
-
     min-height: 140px;
+
+    aspect-ratio: 1 / 1;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
+    clip-path: circle(50% at 50% 50%);
+
     overflow: hidden;
+
+    isolation: isolate;
 
     border: 2px solid rgba(0, 217, 255, 0.65);
 
@@ -2181,12 +2202,15 @@ footer p {
 
   .member-photo img {
     width: 100%;
-
     height: 100%;
+
+    display: block;
 
     object-fit: cover;
 
     object-position: center;
+
+    border-radius: 50%;
   }
 
   .member-index {
@@ -2408,11 +2432,9 @@ footer p {
 
   .member-photo {
     width: 120px;
-
     height: 120px;
 
     min-width: 120px;
-
     min-height: 120px;
   }
 
