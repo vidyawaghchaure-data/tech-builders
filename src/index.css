@@ -77,7 +77,6 @@ button {
   overflow: hidden;
 }
 
-
 /* =========================================================
    NAVBAR
 ========================================================= */
@@ -239,7 +238,6 @@ button {
   }
 }
 
-
 /* =========================================================
    GENERAL
 ========================================================= */
@@ -341,7 +339,6 @@ h2 span {
 
   color: var(--cyan);
 }
-
 
 /* =========================================================
    HERO
@@ -498,7 +495,6 @@ h2 span {
   font-size: 9px;
 }
 
-
 /* =========================================================
    ABOUT
 ========================================================= */
@@ -532,7 +528,6 @@ h2 span {
 
   line-height: 1.9;
 }
-
 
 /* =========================================================
    MISSION
@@ -601,30 +596,37 @@ h2 span {
   line-height: 1.7;
 }
 
-
 /* =========================================================
-   TEAM
+   TEAM MEMBERS — RESPONSIVE + ANIMATED
 ========================================================= */
 
 .team {
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--border);
-
   background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(0, 217, 255, 0.035),
-      transparent 35%
-    ),
+    radial-gradient(circle at 50% 15%, rgba(0, 217, 255, 0.055), transparent 34%),
     #050b16;
 }
 
+.team::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0, 217, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.018) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
 .team-heading {
+  position: relative;
+  z-index: 1;
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 80px;
-
   margin-top: 55px;
 }
 
@@ -635,269 +637,245 @@ h2 span {
 .crew-status {
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   color: #63728a;
-
   font-size: 9px;
-
   letter-spacing: 1.5px;
 }
 
 .team-intro p {
   margin-top: 20px;
-
   color: var(--muted);
-
   font-size: 13px;
-
   line-height: 1.8;
 }
 
 .team-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 20px;
-
+  gap: 24px;
   margin-top: 70px;
 }
 
-
-/* TEAM CARD */
-
 .member-card {
+  position: relative;
   display: grid;
-
-  grid-template-columns: 220px minmax(0, 1fr);
-
+  grid-template-columns: minmax(170px, 0.8fr) minmax(0, 1.2fr);
   min-width: 0;
-
   overflow: hidden;
-
+  isolation: isolate;
   border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(13, 23, 39, 0.98), rgba(5, 11, 22, 0.98));
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: memberCardIn 0.7s cubic-bezier(.2,.7,.2,1) forwards;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(13, 23, 39, 0.98),
-      rgba(5, 11, 22, 0.98)
-    );
+.member-card:nth-child(1) { animation-delay: 0.08s; }
+.member-card:nth-child(2) { animation-delay: 0.16s; }
+.member-card:nth-child(3) { animation-delay: 0.24s; }
+.member-card:nth-child(4) { animation-delay: 0.32s; }
+.member-card:nth-child(5) { animation-delay: 0.40s; }
 
-  transition:
-    transform 0.3s,
-    border-color 0.3s;
+.member-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(0, 217, 255, 0.12), transparent 38%);
+  transition: opacity 0.35s ease;
 }
 
 .member-card:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(0, 217, 255, 0.5);
+  transform: translateY(-8px);
+  border-color: rgba(0, 217, 255, 0.55);
+  box-shadow: 0 20px 55px rgba(0, 217, 255, 0.08);
 }
+
+.member-card:hover::after {
+  opacity: 1;
+}
+
+/* PHOTO */
 
 .member-photo-wrapper {
   position: relative;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
+  min-width: 0;
   min-height: 330px;
+  padding: 28px 18px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, rgba(0, 217, 255, 0.10), transparent 65%);
+}
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(0, 217, 255, 0.08),
-      transparent 65%
-    );
+.member-photo-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(0, 217, 255, 0.12);
+  border-radius: 50%;
+  animation: photoRing 7s linear infinite;
+  pointer-events: none;
 }
 
 .member-photo {
+  position: relative;
+  z-index: 2;
   width: 155px;
   height: 155px;
-
   min-width: 155px;
   min-height: 155px;
-
-  aspect-ratio: 1 / 1;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  clip-path: circle(50% at 50% 50%);
-
+  flex: 0 0 155px;
   overflow: hidden;
-
-  isolation: isolate;
-
-  border: 2px solid rgba(0, 217, 255, 0.65);
-
+  border: 2px solid rgba(0, 217, 255, 0.7);
+  border-radius: 50%;
   background: #0b1424;
-
-  box-shadow:
-    0 0 0 8px rgba(0, 217, 255, 0.035),
-    0 0 35px rgba(0, 217, 255, 0.08);
+  box-shadow: 0 0 0 8px rgba(0, 217, 255, 0.035), 0 0 35px rgba(0, 217, 255, 0.13);
+  animation: photoFloat 4s ease-in-out infinite;
 }
 
 .member-photo img {
+  display: block;
   width: 100%;
   height: 100%;
-
-  display: block;
-
+  max-width: 100%;
   object-fit: cover;
-
   object-position: center;
-
   border-radius: 50%;
 }
 
 .member-index {
   position: absolute;
-
   top: 18px;
   left: 18px;
-
+  z-index: 3;
   color: #607087;
-
   font-family: var(--font-display);
-
   font-size: 10px;
-
   letter-spacing: 1px;
 }
 
+/* INFORMATION */
+
 .member-info {
   min-width: 0;
-
   padding: 28px 25px;
+  overflow-wrap: anywhere;
 }
 
 .member-number {
   color: #526178;
-
   font-size: 8px;
-
   letter-spacing: 2px;
 }
 
 .member-info h3 {
   margin-top: 14px;
-
   color: #f1f6fd;
-
   font-size: 24px;
-
   line-height: 1.1;
 }
 
 .member-info h4 {
   margin-top: 8px;
-
   color: var(--cyan);
-
   font-size: 10px;
-
   font-weight: 500;
-
   line-height: 1.5;
 }
 
 .member-line {
   width: 100%;
   height: 1px;
-
   margin: 18px 0;
-
   background: var(--border);
 }
 
 .expertise-title {
   margin-top: 14px;
-
   color: #526178;
-
   font-size: 7px;
-
   font-weight: 600;
-
   letter-spacing: 2px;
 }
 
 .expertise {
   margin-top: 8px;
-
   color: #91a0b4;
-
   font-size: 10px;
-
   line-height: 1.7;
 }
 
 .skill-tags {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 5px;
-
   margin-top: 9px;
 }
 
 .skill-tags span,
 .tags span {
   padding: 6px 8px;
-
   border: 1px solid #1d3048;
-
   border-radius: 3px;
-
   background: rgba(0, 217, 255, 0.025);
-
   color: #77879d;
-
   font-size: 7px;
-
-  line-height: 1;
-
-  white-space: nowrap;
+  line-height: 1.2;
+  white-space: normal;
 }
 
 .member-links {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin-top: 22px;
 }
 
 .member-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
   padding: 8px 11px;
-
   border: 1px solid var(--border);
-
+  border-radius: 4px;
   color: #718198;
-
   font-size: 8px;
-
   letter-spacing: 0.5px;
-
-  transition: 0.25s;
+  transition: 0.25s ease;
 }
 
 .member-links a:hover {
   border-color: var(--cyan);
-
   color: var(--cyan);
+  transform: translateY(-2px);
 }
 
+@keyframes memberCardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes photoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes photoRing {
+  from { transform: rotate(0deg) scale(0.96); }
+  50% { transform: rotate(180deg) scale(1.03); }
+  to { transform: rotate(360deg) scale(0.96); }
+}
 
 /* =========================================================
    PROJECTS
@@ -991,7 +969,6 @@ h2 span {
 
   margin-top: 20px;
 }
-
 
 /* =========================================================
    FUTURISTIC TECHNOLOGY // TOOLBOX
@@ -1288,7 +1265,6 @@ h2 span {
     inset 0 0 20px rgba(0, 217, 255, 0.04);
 }
 
-
 /* =========================================================
    MISSION PROTOCOL // FROM IDEA TO EXECUTION
 ========================================================= */
@@ -1535,7 +1511,6 @@ h2 span {
   line-height: 1.7;
 }
 
-
 /* =========================================================
    CONTACT
 ========================================================= */
@@ -1601,7 +1576,6 @@ h2 span {
 .contact .btn {
   margin-top: 30px;
 }
-
 
 /* =========================================================
    MODAL
@@ -1798,7 +1772,6 @@ h2 span {
   cursor: pointer;
 }
 
-
 /* SUCCESS */
 
 .success-screen {
@@ -1864,7 +1837,6 @@ h2 span {
   margin-top: 30px;
 }
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1907,7 +1879,6 @@ footer p {
   letter-spacing: 1px;
 }
 
-
 /* =========================================================
    ANIMATIONS
 ========================================================= */
@@ -1940,7 +1911,6 @@ footer p {
   }
 }
 
-
 /* =========================================================
    TABLET
 ========================================================= */
@@ -1964,17 +1934,16 @@ footer p {
   .section {
     padding-left: 5%;
     padding-right: 5%;
-  }
-
+  } 
   .team-grid {
     grid-template-columns: 1fr;
   }
 
   .member-card {
-    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
   }
 
-  .tech-list {
+.tech-list {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -1987,7 +1956,6 @@ footer p {
   }
 
 }
-
 
 /* =========================================================
    MOBILE
@@ -2017,7 +1985,6 @@ footer p {
   .status {
     margin-left: auto;
   }
-
 
   /* HERO */
 
@@ -2065,7 +2032,6 @@ footer p {
     margin-top: 55px;
   }
 
-
   /* GENERAL */
 
   .section {
@@ -2080,7 +2046,6 @@ footer p {
     letter-spacing: -2px;
   }
 
-
   /* ABOUT */
 
   .two-column {
@@ -2094,7 +2059,6 @@ footer p {
   .about-text p {
     font-size: 12px;
   }
-
 
   /* MISSION */
 
@@ -2115,15 +2079,11 @@ footer p {
   .mission-box h3 {
     margin-top: 45px;
   }
-
-
-  /* TEAM (MOBILE LAYOUT FIX) */
+  /* TEAM — MOBILE */
 
   .team-heading {
     grid-template-columns: 1fr;
-
     gap: 30px;
-
     margin-top: 45px;
   }
 
@@ -2133,109 +2093,54 @@ footer p {
 
   .team-grid {
     grid-template-columns: 1fr;
-
-    gap: 24px;
-
+    gap: 22px;
     margin-top: 40px;
   }
 
   .member-card {
     display: flex;
-
     flex-direction: column;
-
     width: 100%;
-
-    overflow: hidden;
+    min-width: 0;
+    border-radius: 12px;
   }
 
   .member-photo-wrapper {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
     width: 100%;
+    min-height: 235px;
+    height: 235px;
+    padding: 25px 0;
+  }
 
-    min-height: 220px;
-
-    padding: 24px 0 10px 0;
-
-    background:
-      radial-gradient(
-        circle,
-        rgba(0, 217, 255, 0.08),
-        transparent 70%
-      );
+  .member-photo-wrapper::after {
+    width: 185px;
+    height: 185px;
   }
 
   .member-photo {
-    width: 140px;
-    height: 140px;
-
-    min-width: 140px;
-    min-height: 140px;
-
-    aspect-ratio: 1 / 1;
-
-    flex-shrink: 0;
-
-    border-radius: 50%;
-
-    clip-path: circle(50% at 50% 50%);
-
-    overflow: hidden;
-
-    isolation: isolate;
-
-    border: 2px solid rgba(0, 217, 255, 0.65);
-
-    background: #0b1424;
-
-    box-shadow:
-      0 0 0 6px rgba(0, 217, 255, 0.035),
-      0 0 25px rgba(0, 217, 255, 0.1);
-  }
-
-  .member-photo img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    border-radius: 50%;
-  }
-
-  .member-index {
-    top: 12px;
-
-    left: 16px;
-
-    font-size: 9px;
+    width: 145px;
+    height: 145px;
+    min-width: 145px;
+    min-height: 145px;
+    flex-basis: 145px;
   }
 
   .member-info {
     width: 100%;
-
-    padding: 20px 20px 24px 20px;
+    padding: 22px 20px 25px;
   }
 
   .member-info h3 {
     margin-top: 10px;
+    font-size: 21px;
+  }
 
-    font-size: 20px;
+  .member-info h4 {
+    font-size: 10px;
   }
 
   .expertise {
     font-size: 10px;
-
     line-height: 1.8;
   }
 
@@ -2244,25 +2149,15 @@ footer p {
   }
 
   .member-links {
-    display: flex;
-
-    flex-wrap: wrap;
-
     gap: 8px;
-
     margin-top: 18px;
   }
 
   .member-links a {
-    flex: 1;
-
-    min-width: calc(50% - 4px);
-
+    flex: 1 1 calc(50% - 8px);
+    min-width: 120px;
     text-align: center;
-
-    padding: 10px 8px;
   }
-
 
   /* PROJECTS */
 
@@ -2282,7 +2177,6 @@ footer p {
     margin-top: 45px;
   }
 
-
   /* TECHNOLOGY */
 
   .technology h2 {
@@ -2300,7 +2194,6 @@ footer p {
 
     font-size: 9px;
   }
-
 
   /* PROCESS */
 
@@ -2326,7 +2219,6 @@ footer p {
     padding: 0;
   }
 
-
   /* CONTACT */
 
   .contact {
@@ -2344,7 +2236,6 @@ footer p {
   .contact p {
     font-size: 11px;
   }
-
 
   /* MODAL */
 
@@ -2386,7 +2277,6 @@ footer p {
     min-height: 430px;
   }
 
-
   /* FOOTER */
 
   footer {
@@ -2402,7 +2292,6 @@ footer p {
   }
 
 }
-
 
 /* =========================================================
    SMALL MOBILE
@@ -2425,20 +2314,25 @@ footer p {
       75px
       16px;
   }
-
   .member-photo-wrapper {
-    min-height: 180px;
+    min-height: 205px;
+    height: 205px;
+  }
+
+  .member-photo-wrapper::after {
+    width: 165px;
+    height: 165px;
   }
 
   .member-photo {
-    width: 120px;
-    height: 120px;
-
-    min-width: 120px;
-    min-height: 120px;
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    min-height: 125px;
+    flex-basis: 125px;
   }
 
-  .member-info {
+.member-info {
     padding:
       22px
       17px
