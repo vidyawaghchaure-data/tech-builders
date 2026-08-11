@@ -26,7 +26,7 @@ function App() {
       no: "01",
       name: "Vidya Waghchaure",
       role: "Team Leader | Data & AI Enthusiast | Python Developer | Computer Engineering Student",
-      photo: `${import.meta.env.BASE_URL}Team%20Members/Vidya.jpeg`,
+      photo: "/Team Members/Vidya.jpeg",
 
       expertise:
         "Data Engineering & Analytics, Python Development, Database Management, Data Analysis & Visualization, ETL Pipeline Development, Backend Development, AI/ML Project Development, Business Intelligence, and End-to-End Software Project Development",
@@ -76,7 +76,7 @@ function App() {
       no: "02",
       name: "Sonawane Swarali",
       role: "Computer Engineering Student",
-      photo: `${import.meta.env.BASE_URL}Team%20Members/Swarali.jpeg`,
+      photo: "/Team Members/Swarali.jpeg",
 
       expertise:
         "Web Application Development, Database Management, Backend Development, REST API Development, Cloud Computing, Computer Networking, IoT Solutions, and Software Project Development",
@@ -115,7 +115,7 @@ function App() {
       no: "03",
       name: "Nilesh Chede",
       role: "Computer Engineering Student",
-      photo: `${import.meta.env.BASE_URL}Team%20Members/Nilesh.jpeg`,
+      photo: "/Team Members/Nilesh.jpeg",
 
       expertise:
         "Python Development, Java Development, Data Science, AI/ML, Android Application Development, Database Solutions, and Software Project Development",
@@ -153,7 +153,7 @@ function App() {
       no: "04",
       name: "Arjun Kute",
       role: "Computer Engineering Student",
-      photo: `${import.meta.env.BASE_URL}Team%20Members/Arjun.jpeg`,
+      photo: "/Team Members/Arjun.jpeg",
 
       expertise:
         "Full-Stack Web Development, Backend Development, Database Management, REST API Development, Cloud & IoT Solutions, Embedded Systems, Computer Networking, and Software Project Development",
@@ -194,7 +194,7 @@ function App() {
       no: "05",
       name: "Avishkar Dawbhat",
       role: "Android Developer | Computer Engineering Student",
-      photo: `${import.meta.env.BASE_URL}Team%20Members/Avishkar.jpeg`,
+      photo: "/Team Members/Avishkar.jpeg",
 
       expertise:
         "Android Application Development, Mobile UI/UX Design,  Backend & Database Integration, API Integration, Application Architecture, and End-to-End Project Development",
