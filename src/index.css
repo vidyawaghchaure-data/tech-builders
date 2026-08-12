@@ -347,14 +347,19 @@ h2 span {
 .hero {
   position: relative;
 
-  min-height: 100vh;
+  animation: heroEnter 1s ease-out;
+}
 
-  display: flex;
-  align-items: center;
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-  padding: 150px 7% 90px;
-
-  overflow: hidden;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-grid {
@@ -968,6 +973,64 @@ h2 span {
   gap: 6px;
 
   margin-top: 20px;
+}
+
+.project-heading h2 {
+  animation: revealLeft 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-heading h2 span {
+  display: inline-block;
+  animation: floatText 4s 1.3s ease-in-out infinite;
+}
+
+.project-heading p {
+  animation: revealRight 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.projects-grid {
+  perspective: 1000px;
+}
+
+.project-card {
+  animation: scaleReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+.project-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.project-card:hover {
+  transform: translateY(-15px) rotateX(2deg) rotateY(-2deg);
+}
+
+.project-card .project-top span:last-child {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-top span:last-child {
+  transform: translate(6px, -6px) scale(1.2);
+}
+
+.project-card .tags span {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.project-card:hover .tags span {
+  transform: translateY(-3px);
 }
 
 /* =========================================================
@@ -2061,6 +2124,52 @@ footer p {
   }
 
   /* MISSION */
+  .mission > h2 {
+  animation:
+    revealUp 1s cubic-bezier(0.22, 1, 0.36, 1) both,
+    textGlow 5s 1.2s ease-in-out infinite;
+}
+
+.mission > h2 span {
+  display: inline-block;
+  animation: floatText 4s 1.4s ease-in-out infinite;
+}
+
+.mission-grid {
+  display: grid;
+}
+
+.mission-box {
+  animation: scaleReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.mission-box:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.mission-box:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.mission-box:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.mission-box:hover {
+  transform: translateY(-14px) scale(1.02);
+}
+
+.mission-box:hover .box-icon {
+  transform: rotate(360deg);
+}
+
+.box-icon {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
   .mission > h2 {
     margin-top: 40px;
@@ -2357,4 +2466,981 @@ footer p {
     font-size: 32px;
   }
 
+}
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  from {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 transparent;
+  }
+
+  50% {
+    text-shadow: 0 0 28px rgba(255, 255, 255, 0.18);
+  }
+}
+
+@keyframes floatText {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(120, 255, 180, 0.45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(120, 255, 180, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(120, 255, 180, 0);
+  }
+}
+.framework {
+  animation: float 4s ease-in-out infinite;
+}
+
+.vite {
+  animation: float 5s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* =========================================================
+   🚀 TECH BUILDERS — ANIMATION & MOBILE ENHANCEMENT
+   Add this at the VERY END of App.css
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL SMOOTHNESS
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+.card,
+.member-card,
+.project-card,
+.mission-box,
+.tech-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   2. PAGE LOAD ANIMATION
+========================================================= */
+
+body {
+  animation: pageFadeIn 0.8s ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   3. HERO ANIMATION
+========================================================= */
+
+.hero {
+  animation: heroReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero h1 {
+  animation: heroTitle 1s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero p {
+  animation: heroText 1s 0.3s ease both;
+}
+
+.hero .hero-buttons,
+.hero button {
+  animation: heroButtons 1s 0.45s ease both;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTitle {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+    letter-spacing: 8px;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: normal;
+  }
+}
+
+@keyframes heroText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroButtons {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   4. HERO FLOATING EFFECT
+========================================================= */
+
+.hero .base {
+  animation: baseFloat 5s ease-in-out infinite;
+}
+
+.hero .framework {
+  animation:
+    frameworkFloat 4s ease-in-out infinite,
+    frameworkGlow 3s ease-in-out infinite alternate;
+}
+
+.hero .vite {
+  animation: viteFloat 4.5s ease-in-out infinite reverse;
+}
+
+@keyframes baseFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes frameworkFloat {
+  0%,
+  100% {
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(44deg)
+      rotateY(39deg)
+      scale(1.4)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(44deg)
+      rotateY(39deg)
+      scale(1.4)
+      translateY(-10px);
+  }
+}
+
+@keyframes viteFloat {
+  0%,
+  100% {
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(40deg)
+      rotateY(39deg)
+      scale(0.8)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(40deg)
+      rotateY(39deg)
+      scale(0.8)
+      translateY(-8px);
+  }
+}
+
+@keyframes frameworkGlow {
+  from {
+    filter: drop-shadow(0 0 0 rgba(0, 229, 255, 0));
+  }
+
+  to {
+    filter: drop-shadow(0 0 14px rgba(0, 229, 255, 0.35));
+  }
+}
+
+
+/* =========================================================
+   5. COUNTER ANIMATION
+========================================================= */
+
+.counter {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.counter:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 229, 255, 0.12);
+}
+
+
+/* =========================================================
+   6. BUTTON PREMIUM EFFECT
+========================================================= */
+
+button,
+.btn,
+a[class*="button"] {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a[class*="button"]:hover {
+  transform: translateY(-3px);
+}
+
+button:active,
+.btn:active,
+a[class*="button"]:active {
+  transform: translateY(0) scale(0.97);
+}
+
+
+/* =========================================================
+   7. NEXT STEPS ANIMATION
+========================================================= */
+
+#next-steps > div {
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+#next-steps > div:hover {
+  background: rgba(0, 229, 255, 0.025);
+
+  transform: translateY(-3px);
+}
+
+#next-steps a {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+#next-steps a:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   8. GENERAL CARD HOVER
+========================================================= */
+
+.mission-box,
+.member-card,
+.project-card,
+.tech-card,
+.process-card {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.mission-box:hover,
+.member-card:hover,
+.project-card:hover,
+.tech-card:hover,
+.process-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   9. MISSION / FEATURE BOX GLOW
+========================================================= */
+
+.mission-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-box::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.06),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: 0.8s;
+
+  pointer-events: none;
+}
+
+.mission-box:hover::before {
+  left: 140%;
+}
+
+
+/* =========================================================
+   10. TEAM CARD IMAGE ZOOM
+========================================================= */
+
+.member-card {
+  overflow: hidden;
+}
+
+.member-card img {
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.member-card:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   11. TEAM CARD REVEAL
+========================================================= */
+
+.member-card {
+  animation: memberReveal 0.8s ease both;
+}
+
+.member-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.member-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.member-card:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.member-card:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.member-card:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+@keyframes memberReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   12. PROJECT CARD SHINE
+========================================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 229, 255, 0.06),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: 0.9s;
+
+  pointer-events: none;
+}
+
+.project-card:hover::before {
+  left: 140%;
+}
+
+
+/* =========================================================
+   13. PROJECT TAG ANIMATION
+========================================================= */
+
+.project-card .tag,
+.project-card .tags span,
+.project-card span {
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.project-card:hover .tag,
+.project-card:hover .tags span {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   14. TECHNOLOGY FLOATING ANIMATION
+========================================================= */
+
+.tech-card {
+  animation: techFloat 4s ease-in-out infinite;
+}
+
+.tech-card:nth-child(2n) {
+  animation-delay: 0.5s;
+}
+
+.tech-card:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+@keyframes techFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =========================================================
+   15. TECHNOLOGY HOVER
+========================================================= */
+
+.tech-card:hover {
+  color: var(--accent);
+
+  border-color: var(--accent-border);
+
+  box-shadow:
+    0 0 25px rgba(0, 229, 255, 0.08);
+
+  transform:
+    translateY(-7px)
+    scale(1.02);
+}
+
+
+/* =========================================================
+   16. PROCESS TIMELINE ANIMATION
+========================================================= */
+
+.process-card,
+.process-step {
+  position: relative;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.process-card:hover,
+.process-step:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--accent-border);
+}
+
+
+/* =========================================================
+   17. SECTION HEADING ANIMATION
+========================================================= */
+
+section h2 {
+  transition:
+    transform 0.4s ease,
+    text-shadow 0.4s ease;
+}
+
+section h2:hover {
+  transform: translateX(4px);
+
+  text-shadow:
+    0 0 25px rgba(0, 229, 255, 0.12);
+}
+
+
+/* =========================================================
+   18. LINK UNDERLINE ANIMATION
+========================================================= */
+
+a {
+  position: relative;
+}
+
+.navbar a::after,
+nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   19. GLOWING STATUS DOT
+========================================================= */
+
+.status-dot,
+.online-dot {
+  animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(0, 229, 255, 0.5);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 8px rgba(0, 229, 255, 0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(0, 229, 255, 0);
+  }
+}
+
+
+/* =========================================================
+   20. SPACER / TICKS
+========================================================= */
+
+.ticks::before,
+.ticks::after {
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ticks:hover::before {
+  transform: translateX(3px);
+}
+
+.ticks:hover::after {
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   21. MODAL ANIMATION
+========================================================= */
+
+.modal,
+.contact-modal,
+.modal-content {
+  animation:
+    modalOpen 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform:
+      translateY(25px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   22. MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  #center {
+    width: 100%;
+
+    padding:
+      35px 18px 30px;
+
+    gap: 20px;
+
+    text-align: center;
+  }
+
+  #next-steps {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  #next-steps > div {
+    width: 100%;
+
+    padding:
+      28px 20px;
+  }
+
+  #docs {
+    border-right: none;
+
+    border-bottom:
+      1px solid var(--border);
+  }
+
+  #next-steps ul {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+  }
+
+  #next-steps li {
+    flex:
+      1 1 calc(50% - 8px);
+  }
+
+  #next-steps a {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  #spacer {
+    height: 45px;
+  }
+
+
+  /* Mobile hero */
+
+  .hero {
+    width: 100%;
+
+    min-height: auto;
+
+    padding:
+      100px 20px 60px;
+
+    flex-direction: column;
+
+    gap: 35px;
+
+    text-align: center;
+  }
+
+
+  /* Mobile cards */
+
+  .mission-box,
+  .member-card,
+  .project-card,
+  .tech-card,
+  .process-card {
+    transform: none;
+
+    animation-duration: 0.7s;
+  }
+
+
+  /* Disable excessive hover movement on touch */
+
+  .mission-box:hover,
+  .member-card:hover,
+  .project-card:hover,
+  .tech-card:hover,
+  .process-card:hover {
+    transform: translateY(-3px);
+  }
+
+
+  /* Better touch targets */
+
+  button,
+  .btn,
+  #next-steps a {
+    min-height: 44px;
+  }
+}
+
+
+/* =========================================================
+   23. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  #center {
+    padding:
+      30px 15px;
+  }
+
+  #next-steps > div {
+    padding:
+      24px 16px;
+  }
+
+  #next-steps ul {
+    gap: 7px;
+  }
+
+  #next-steps li {
+    flex: 1 1 100%;
+  }
+
+  .hero {
+    padding:
+      90px 16px 50px;
+  }
+
+  .hero h1 {
+    font-size:
+      clamp(38px, 12vw, 52px);
+  }
+
+  .hero p {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .hero .base {
+    max-width: 140px;
+  }
+
+  .hero .framework {
+    max-width: 130px;
+  }
+
+  .hero .vite {
+    max-width: 100px;
+  }
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   25. FOCUS ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline:
+    2px solid var(--accent);
+
+  outline-offset: 3px;
 }

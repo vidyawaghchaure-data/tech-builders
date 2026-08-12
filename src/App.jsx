@@ -25,7 +25,7 @@ function App() {
     {
       no: "01",
       name: "Vidya Waghchaure",
-      role: "Team Leader | Data & AI Enthusiast | Python Developer | Computer Engineering Student",
+      role: "Team Leader | Data & AI Enthusiast | Python Developer ",
       photo: "/Team Members/Vidya.jpeg",
 
       expertise:
@@ -75,11 +75,11 @@ function App() {
     {
       no: "02",
       name: "Sonawane Swarali",
-      role: "Computer Engineering Student",
+      role: "Full-Stack Developer | Python Developer",
       photo: "/Team Members/Swarali.jpeg",
 
       expertise:
-        "Web Application Development, Database Management, Backend Development, REST API Development, Cloud Computing, Computer Networking, IoT Solutions, and Software Project Development",
+        "Web Application Development, Database Management, Backend Development, REST API Development, Cloud Computing, Computer Networking,  and Software Project Development",
 
       technologies: [
         "Python",
@@ -97,9 +97,7 @@ function App() {
         "Web Development",
         "Database Design & Management",
         "Backend Development",
-        "API Integration",
-        "Cloud Fundamentals",
-        "IoT Applications",
+         "Cloud Fundamentals",
         "Computer Networking",
         "Problem Solving",
       ],
@@ -114,7 +112,7 @@ function App() {
     {
       no: "03",
       name: "Nilesh Chede",
-      role: "Computer Engineering Student",
+      role: "Software AI | Data Science Enthusiast ",
       photo: "/Team Members/Nilesh.jpeg",
 
       expertise:
@@ -122,8 +120,7 @@ function App() {
 
       technologies: [
         "Python",
-        "Java",
-        "SQL",
+         "SQL",
         "Kotlin",
         "Android Studio",
         "MongoDB",
@@ -152,7 +149,7 @@ function App() {
     {
       no: "04",
       name: "Arjun Kute",
-      role: "Computer Engineering Student",
+      role: "Full-Stack Developer | Python Developer",
       photo: "/Team Members/Arjun.jpeg",
 
       expertise:
@@ -193,7 +190,7 @@ function App() {
     {
       no: "05",
       name: "Avishkar Dawbhat",
-      role: "Android Developer | Computer Engineering Student",
+      role: "Android Developer | java Developer",
       photo: "/Team Members/Avishkar.jpeg",
 
       expertise:
