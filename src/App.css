@@ -182,3 +182,29 @@
     border-right-color: var(--border);
   }
 }
+/* ===== Desktop Header + Hero Fix ===== */
+@media (min-width: 769px) {
+  .hero {
+    padding-top: 140px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    position: relative;
+    z-index: 2;
+  }
+
+  header,
+  .header,
+  .navbar,
+  nav {
+    position: relative;
+    z-index: 1000;
+  }
+}
